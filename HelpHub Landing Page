@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ConnectSMS - Bridging Communities Across the Universe</title>
+    <title>HelpHub - Bridging Communities Across the Universe</title>
     <style>
         * {
             margin: 0;
@@ -669,8 +669,8 @@
         <div class="container">
             <nav>
                 <div class="logo">
-                    <div class="logo-icon">💬</div>
-                    ConnectSMS
+                    <div class="logo-icon">🤍</div>
+                    HelpHub
                 </div>
                 <ul class="nav-links">
                     <li><a href="#features">Features</a></li>
@@ -685,7 +685,7 @@
                     <span class="highlight">Across the Universe</span>
                 </h1>
                 <p>
-                    AI-powered SMS platform linking those in need with local social service providers at the speed of light ✨
+                    A platform linking those in need with local social service providers at the speed of light ✨
                 </p>
                 <div class="cta-buttons">
                     <a href="#cta" class="btn btn-primary">Launch Mission 🚀</a>
@@ -700,7 +700,7 @@
             <h2 class="section-title">Cosmic Features for Earthly Impact 🌍</h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">🤖</div>
+                    <div class="feature-icon">🏎️</div>
                     <h3>AI-Powered Matching</h3>
                     <p>Our intelligent system instantly connects clients with the right providers based on their specific needs and location at lightspeed.</p>
                 </div>
@@ -727,7 +727,7 @@
                 <div class="feature-card">
                     <div class="feature-icon">💰</div>
                     <h3>Affordable Galaxy-Wide</h3>
-                    <p>Breaking down barriers to essential services with low-cost, accessible solutions for all beings.</p>
+                    <p>Breaking down barriers to essential services with no-cost, accessible solutions for all beings.</p>
                 </div>
             </div>
         </div>
@@ -741,7 +741,7 @@
                 <div class="step">
                     <div class="step-number">1</div>
                     <h3>Send Signal 📡</h3>
-                    <p>Text your need to our platform from any device in the universe</p>
+                    <p>Complete an Intake form to capture your information so we can find help</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
@@ -762,7 +762,7 @@
             <h2>Ready to Join the Mission? 🌌</h2>
             <p>Join thousands of space explorers helping connect communities to vital services</p>
             <div class="cta-buttons">
-                <a href="#" class="btn btn-primary">Start Free Mission 🚀</a>
+                <a href="#" class="btn btn-primary">Start Your Mission 🚀</a>
                 <a href="#" class="btn btn-secondary">Contact Starbase 📞</a>
             </div>
         </div>
