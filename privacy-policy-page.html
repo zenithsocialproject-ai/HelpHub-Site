@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - ConnectSMS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            overflow-x: hidden;
+            background: #0a0e27;
+            color: white;
+            line-height: 1.8;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .hero {
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(ellipse at top, #1e3a8a 0%, #0a0e27 50%, #000000 100%);
+        }
+
+        .nebula {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.4;
+        }
+
+        .nebula-cloud {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: nebulaDrift 20s infinite alternate;
+        }
+
+        .nebula-cloud:nth-child(1) {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.5) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+            animation-duration: 25s;
+        }
+
+        .nebula-cloud:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.4) 0%, transparent 70%);
+            bottom: -50px;
+            left: -50px;
+            animation-duration: 30s;
+        }
+
+        @keyframes nebulaDrift {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 30px) scale(1.1); }
+        }
+
+        .planet {
+            position: absolute;
+            border-radius: 50%;
+            animation: orbit 60s linear infinite;
+        }
+
+        .planet1 {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle at 30% 30%, #ff6b6b, #c92a2a);
+            box-shadow: 0 0 40px rgba(255, 107, 107, 0.6), inset -15px -15px 30px rgba(0,0,0,0.5);
+            top: 20%;
+            right: 10%;
+            animation-duration: 50s;
+        }
+
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(20px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(20px) rotate(-360deg); }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(10, 14, 39, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #FFD93D, #FF6B6B);
+            transition: width 0.3s;
+            box-shadow: 0 0 10px rgba(255, 217, 61, 0.8);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            padding: 120px 20px 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-content .highlight {
+            background: linear-gradient(135deg, #FFD93D 0%, #FF6B6B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 20px rgba(255, 217, 61, 0.5));
+        }
+
+        .content-section {
+            padding: 80px 20px;
+            background: linear-gradient(180deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);
+            position: relative;
+        }
+
+        .policy-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            padding: 60px;
+            box-shadow: 
+                0 0 60px rgba(102, 126, 234, 0.2),
+                0 20px 60px rgba(0, 0, 0, 0.3),
+                inset 0 0 60px rgba(102, 126, 234, 0.05);
+        }
+
+        .policy-container h2 {
+            font-size: 32px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #4ecdc4 0%, #667eea 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .policy-container h2:first-child {
+            margin-top: 0;
+        }
+
+        .policy-container h3 {
+            font-size: 24px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #4ecdc4;
+        }
+
+        .policy-container p {
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 16px;
+        }
+
+        .policy-container ul, .policy-container ol {
+            margin-bottom: 20px;
+            padding-left: 30px;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .policy-container li {
+            margin-bottom: 10px;
+        }
+
+        .policy-container strong {
+            color: #FFD93D;
+            font-weight: 700;
+        }
+
+        .last-updated {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .placeholder {
+            background: rgba(255, 217, 61, 0.1);
+            border-left: 4px solid #FFD93D;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        footer {
+            background: #000000;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .policy-container {
+                padding: 30px;
+            }
+
+            .policy-container h2 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+
+    <section class="hero">
+        <div class="nebula">
+            <div class="nebula-cloud"></div>
+            <div class="nebula-cloud"></div>
+        </div>
+        
+        <div class="planet planet1"></div>
+
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">💬</div>
+                    ConnectSMS
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#how">How It Works</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="hero-content">
+                <h1>
+                    <span class="highlight">Privacy Policy</span>
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="policy-container">
+            <p class="last-updated"><strong>Last Updated:</strong> [Insert Date Here]</p>
+
+            <div class="placeholder">
+                💡 <strong>Note:</strong> This is a template. Replace all content in brackets [like this] with your actual information.
+            </div>
+
+            <h2>1. Introduction</h2>
+            <p>
+                Welcome to ConnectSMS ("we," "our," or "us"). We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our SMS-based service that connects individuals seeking social services with local providers.
+            </p>
+            <p class="placeholder">
+                [Add your company's introduction and commitment to privacy here]
+            </p>
+
+            <h2>2. Information We Collect</h2>
+            
+            <h3>2.1 Information You Provide</h3>
+            <p>We collect information that you voluntarily provide to us, including:</p>
+            <ul>
+                <li><strong>Contact Information:</strong> Phone number, name, email address</li>
+                <li><strong>Service Requests:</strong> Information about the social services you need</li>
+                <li><strong>Location Data:</strong> City, state, or zip code to connect you with local providers</li>
+                <li>[Add other information types you collect]</li>
+            </ul>
+
+            <h3>2.2 Automatically Collected Information</h3>
+            <p>When you use our service, we may automatically collect:</p>
+            <ul>
+                <li>SMS message metadata (timestamps, message length)</li>
+                <li>Device information and identifiers</li>
+                <li>Usage data and analytics</li>
+                <li>[Add other automatically collected data]</li>
+            </ul>
+
+            <p class="placeholder">
+                [Customize the types of information you collect based on your specific service]
+            </p>
+
+            <h2>3. How We Use Your Information</h2>
+            <p>We use the information we collect to:</p>
+            <ul>
+                <li>Connect you with appropriate local social service providers</li>
+                <li>Process and respond to your service requests</li>
+                <li>Improve our AI matching algorithms</li>
+                <li>Communicate with you about our services</li>
+                <li>Comply with legal obligations</li>
+                <li>Prevent fraud and ensure platform security</li>
+                <li>[Add your specific use cases]</li>
+            </ul>
+
+            <p class="placeholder">
+                [Detail exactly how you use user information, especially for AI processing]
+            </p>
+
+            <h2>4. Information Sharing and Disclosure</h2>
+            <p>We may share your information with:</p>
+            <ul>
+                <li><strong>Service Providers:</strong> Social service providers you are matched with</li>
+                <li><strong>Service Partners:</strong> Third-party vendors who help us operate our platform</li>
+                <li><strong>Legal Requirements:</strong> When required by law or to protect our rights</li>
+                <li>[Add other sharing scenarios]</li>
+            </ul>
+
+            <p><strong>We do NOT sell your personal information to third parties.</strong></p>
+
+            <p class="placeholder">
+                [Specify exactly who has access to user data and under what circumstances]
+            </p>
+
+            <h2>5. Data Security</h2>
+            <p>
+                We implement industry-standard security measures to protect your personal information, including [encryption, secure servers, access controls, etc.]. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.
+            </p>
+
+            <p class="placeholder">
+                [Detail your specific security measures and protocols]
+            </p>
+
+            <h2>6. Your Rights and Choices</h2>
+            <p>You have the right to:</p>
+            <ul>
+                <li>Access the personal information we hold about you</li>
+                <li>Request correction of inaccurate information</li>
+                <li>Request deletion of your information</li>
+                <li>Opt-out of certain data processing activities</li>
+                <li>Withdraw consent at any time</li>
+                <li>[Add rights specific to your jurisdiction - GDPR, CCPA, etc.]</li>
+            </ul>
+
+            <p>To exercise these rights, contact us at: [Insert Contact Email/Phone]</p>
+
+            <p class="placeholder">
+                [Add details about how users can exercise their privacy rights]
+            </p>
+
+            <h2>7. SMS Communications</h2>
+            <p>
+                By using our service, you consent to receive SMS messages from us and our partner providers. Standard message and data rates may apply. You can opt-out at any time by [texting STOP, contacting us, etc.].
+            </p>
+
+            <p class="placeholder">
+                [Add specific SMS terms, opt-out instructions, and carrier information]
+            </p>
+
+            <h2>8. Children's Privacy</h2>
+            <p>
+                Our service is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If you believe we have collected information from a child under 13, please contact us immediately.
+            </p>
+
+            <p class="placeholder">
+                [Adjust age limit based on your jurisdiction and add relevant COPPA compliance information]
+            </p>
+
+            <h2>9. Changes to This Privacy Policy</h2>
+            <p>
+                We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date. We encourage you to review this Privacy Policy periodically.
+            </p>
+
+            <h2>10. Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy, please contact us:</p>
+            <ul>
+                <li><strong>Email:</strong> [Insert Email]</li>
+                <li><strong>Phone:</strong> [Insert Phone Number]</li>
+                <li><strong>Address:</strong> [Insert Physical Address]</li>
+                <li><strong>Website:</strong> [Insert Website URL]</li>
+            </ul>
+
+            <p class="placeholder">
+                [Add your actual contact information]
+            </p>
+
+            <h2>11. Additional Information</h2>
+            
+            <h3>11.1 California Residents (CCPA)</h3>
+            <p class="placeholder">
+                [If you have California users, add CCPA-specific disclosures here]
+            </p>
+
+            <h3>11.2 European Users (GDPR)</h3>
+            <p class="placeholder">
+                [If you have EU users, add GDPR-specific disclosures here, including legal basis for processing, data retention periods, and data transfer mechanisms]
+            </p>
+
+            <h3>11.3 Data Retention</h3>
+            <p class="placeholder">
+                [Specify how long you retain different types of user data]
+            </p>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <p>© 2025 ConnectSMS. Bridging communities across the cosmos. 🌟</p>
+        </div>
+    </footer>
+
+    <script>
+        // Generate stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 200; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = Math.random() * 3 + 'px';
+            star.style.height = star.style.width;
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>
