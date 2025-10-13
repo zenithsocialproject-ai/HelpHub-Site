@@ -1,4 +1,3 @@
-Zapier-JS-Development/
 
 //Developed for the Lambda Environment
 
