@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - ConnectSMS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            overflow-x: hidden;
+            background: #0a0e27;
+            color: white;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(ellipse at top, #1e3a8a 0%, #0a0e27 50%, #000000 100%);
+        }
+
+        .nebula {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.4;
+        }
+
+        .nebula-cloud {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: nebulaDrift 20s infinite alternate;
+        }
+
+        .nebula-cloud:nth-child(1) {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.5) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+            animation-duration: 25s;
+        }
+
+        .nebula-cloud:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.4) 0%, transparent 70%);
+            bottom: -50px;
+            left: -50px;
+            animation-duration: 30s;
+        }
+
+        .nebula-cloud:nth-child(3) {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(72, 219, 251, 0.4) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-duration: 35s;
+        }
+
+        @keyframes nebulaDrift {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 30px) scale(1.1); }
+        }
+
+        .planet {
+            position: absolute;
+            border-radius: 50%;
+            animation: orbit 60s linear infinite;
+        }
+
+        .planet1 {
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle at 30% 30%, #ff6b6b, #c92a2a);
+            box-shadow: 0 0 60px rgba(255, 107, 107, 0.6), inset -20px -20px 50px rgba(0,0,0,0.5);
+            top: 15%;
+            right: 10%;
+            animation-duration: 50s;
+        }
+
+        .planet2 {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle at 30% 30%, #4ecdc4, #1a535c);
+            box-shadow: 0 0 40px rgba(78, 205, 196, 0.6), inset -15px -15px 40px rgba(0,0,0,0.5);
+            bottom: 20%;
+            left: 8%;
+            animation-duration: 70s;
+            animation-direction: reverse;
+        }
+
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(30px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(30px) rotate(-360deg); }
+        }
+
+        .shooting-star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px 2px white;
+            animation: shoot 3s linear infinite;
+        }
+
+        @keyframes shoot {
+            0% {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+            70% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-300px, 300px);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(10, 14, 39, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #FFD93D, #FF6B6B);
+            transition: width 0.3s;
+            box-shadow: 0 0 10px rgba(255, 217, 61, 0.8);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            padding: 120px 20px 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 64px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            animation: fadeInUp 0.8s ease-out;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-content .highlight {
+            background: linear-gradient(135deg, #FFD93D 0%, #FF6B6B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 20px rgba(255, 217, 61, 0.5));
+        }
+
+        .hero-content p {
+            font-size: 24px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .mission-section {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #4ecdc4 0%, #667eea 50%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 20px rgba(78, 205, 196, 0.3));
+        }
+
+        .mission-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            padding: 50px;
+            box-shadow: 
+                0 0 60px rgba(102, 126, 234, 0.2),
+                0 20px 60px rgba(0, 0, 0, 0.3),
+                inset 0 0 60px rgba(102, 126, 234, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-content::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .mission-content > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .mission-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+        }
+
+        .values-section {
+            padding: 100px 20px;
+            background: radial-gradient(ellipse at center, #1e3a8a 0%, #0a0e27 70%);
+            position: relative;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 40px auto 0;
+        }
+
+        .value-card {
+            padding: 40px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3), 0 0 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .value-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+        }
+
+        .value-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .value-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .story-section {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #0a0e27 0%, #1a1f3a 100%);
+            position: relative;
+        }
+
+        .story-content {
+            max-width: 900px;
+            margin: 40px auto 0;
+        }
+
+        .story-block {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.1);
+        }
+
+        .story-block h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #FFD93D 0%, #FF6B6B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .story-block p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .placeholder {
+            background: rgba(255, 217, 61, 0.1);
+            border-left: 4px solid #FFD93D;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+
+        .team-section {
+            padding: 100px 20px;
+            background: radial-gradient(ellipse at center, #764ba2 0%, #0a0e27 70%);
+            position: relative;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 40px auto 0;
+        }
+
+        .team-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            margin: 0 auto 20px;
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+        }
+
+        .team-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .team-card .role {
+            color: #4ecdc4;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .team-card p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .cta-section {
+            padding: 100px 20px;
+            background: radial-gradient(ellipse at center, #1e3a8a 0%, #0a0e27 70%);
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '🌌';
+            position: absolute;
+            font-size: 200px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.1;
+            animation: spin 30s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .cta-section h2 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn {
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4), 0 0 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5), 0 0 30px rgba(102, 126, 234, 0.5);
+        }
+
+        footer {
+            background: #000000;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 40px;
+            }
+
+            .hero-content p {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mission-content, .story-block {
+                padding: 30px;
+            }
+
+            .planet {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+
+    <section class="hero">
+        <div class="nebula">
+            <div class="nebula-cloud"></div>
+            <div class="nebula-cloud"></div>
+            <div class="nebula-cloud"></div>
+        </div>
+        
+        <div class="planet planet1"></div>
+        <div class="planet planet2"></div>
+        
+        <div class="shooting-star" style="top: 20%; left: 80%;"></div>
+        <div class="shooting-star" style="top: 40%; left: 70%; animation-delay: 2s;"></div>
+
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">💬</div>
+                    ConnectSMS
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#how">How It Works</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="hero-content">
+                <h1>
+                    Our <span class="highlight">Cosmic Mission</span>
+                </h1>
+                <p>
+                    Building bridges across communities through technology, one text message at a time ✨
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mission-section">
+        <div class="container">
+            <h2 class="section-title">Our Mission 🎯</h2>
+            <div class="mission-content">
+                <p>
+                    At ConnectSMS, we believe that access to essential social services shouldn't be complicated. Our mission is to break down barriers and connect individuals in need with local social service providers through the simplicity of text messaging.
+                </p>
+                <p>
+                    Using cutting-edge AI technology, we've created a platform that understands human needs and matches them with the right resources instantly. No apps to download. No complicated forms. Just simple, human-centered technology that works for everyone.
+                </p>
+                <div class="placeholder">
+                    💡 <strong>Customize:</strong> Replace this content with your actual mission statement and what makes your company unique.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-title">Our Core Values 🌟</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Accessibility First</h3>
+                    <p>Everyone deserves access to help, regardless of their technical skills or device capabilities.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">💙</div>
+                    <h3>Compassion</h3>
+                    <p>We approach every interaction with empathy, understanding the sensitive nature of social services.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">⚡</div>
+                    <h3>Speed & Efficiency</h3>
+                    <p>When people need help, they need it fast. Our AI ensures instant, accurate connections.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🔒</div>
+                    <h3>Privacy & Trust</h3>
+                    <p>We protect user information with the highest security standards and never compromise privacy.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🌍</div>
+                    <h3>Community Impact</h3>
+                    <p>We measure success by the positive impact we create in local communities.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🚀</div>
+                    <h3>Innovation</h3>
+                    <p>We continuously evolve our technology to better serve those who need it most.</p>
+                </div>
+            </div>
+            <div class="placeholder" style="max-width: 900px; margin: 40px auto 0;">
+                💡 <strong>Customize:</strong> Edit these values to reflect your company's actual core principles.
+            </div>
+        </div>
+    </section>
+
+    <section class="story-section">
+        <div class="container">
+            <h2 class="section-title">Our Story 📖</h2>
+            <div class="story-content">
+                <div class="story-block">
+                    <h3>The Problem We Saw</h3>
+                    <p>
+                        We noticed that countless individuals struggle to find the social services they desperately need. Complex websites, long wait times, and fragmented systems create barriers when people are at their most vulnerable. We knew there had to be a better way.
+                    </p>
+                    <div class="placeholder">
+                        💡 Replace with your actual founding story and the problem you identified.
+                    </div>
+                </div>
+
+                <div class="story-block">
+                    <h3>The Solution We Built</h3>
+                    <p>
+                        ConnectSMS was born from a simple idea: what if getting help was as easy as sending a text? We combined AI technology with a deep understanding of social services to create a platform that works for everyone, on any phone, anywhere.
+                    </p>
+                    <div class="placeholder">
+                        💡 Describe how you developed your solution and what makes it unique.
+                    </div>
+                </div>
+
+                <div class="story-block">
+                    <h3>Our Impact Today</h3>
+                    <p>
+                        Today, we've connected thousands of individuals with the services they need. From housing assistance to healthcare access, from food security to mental health support, we're making a real difference in communities across the country.
+                    </p>
+                    <div class="placeholder">
+                        💡 Add real metrics, testimonials, or impact statistics here.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">Meet the Crew 👨‍🚀</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">👨‍💼</div>
+                    <h3>Your Name</h3>
+                    <p class="role">Founder & CEO</p>
+                    <p>Brief bio about your background and passion for this mission.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">👩‍💻</div>
+                    <h3>Team Member</h3>
+                    <p class="role">CTO</p>
+                    <p>Brief bio about technical expertise and role in the company.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">👨‍🔬</div>
+                    <h3>Team Member</h3>
+                    <p class="role">Head of AI</p>
+                    <p>Brief bio about AI expertise and contributions.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">👩‍⚕️</div>
+                    <h3>Team Member</h3>
+                    <p class="role">Community Relations</p>
+                    <p>Brief bio about community work and provider relationships.</p>
+                </div>
+            </div>
+            <div class="placeholder" style="max-width: 900px; margin: 40px auto 0;">
+                💡 <strong>Customize:</strong> Add your actual team members with real names, roles, photos (or keep emoji avatars!), and bios.
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Join Our Mission 🚀</h2>
+            <p>Help us bridge communities and connect people to the services they need</p>
+            <a href="ConnectSMS QR Code.pdf" download class="btn btn-primary">Get Started Today</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <p>© 2025 ConnectSMS. Bridging communities across the cosmos. 🌟</p>
+        </div>
+    </footer>
+
+    <script>
+        // Generate stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 200; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = Math.random
